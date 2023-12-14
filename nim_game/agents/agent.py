@@ -49,7 +49,7 @@ class Agent:
 
         for heap_id, amount in enumerate(state_curr):
             optimal = nim_sum ^ amount
-            if 0 <= optimal <= state_curr[heap_id]:
+            if 0 <= optimal < state_curr[heap_id]:
                 return NimStateChange(heap_id, state_curr[heap_id] - optimal)
 
         return Agent.get_random_move(state_curr)
